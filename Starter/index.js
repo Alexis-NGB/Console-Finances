@@ -108,3 +108,5 @@ for(let month_balance=0; month_balance < num_of_months; month_balance += 1){
         min_balance_change_month = current_month
     }
 }
+
+let average = total_balance / num_of_months
