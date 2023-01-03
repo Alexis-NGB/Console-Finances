@@ -94,3 +94,17 @@ let min_balance_change_month = ''
 let total_balance = 0
 // we assume that we don't repeat months-year information in the finance dataset
 let num_of_months = finances.length
+
+for(let month_balance=0; month_balance < num_of_months; month_balance += 1){
+    let current_month = finances[month_balance][0]
+    let balance_change = finances[month_balance][1]
+    total_balance += balance_change
+    if (balance_change > max_balance_change){
+        max_balance_change = balance_change
+        max_balance_change_month = current_month
+    }
+    if (balance_change < min_balance_change){
+        min_balance_change = balance_change
+        min_balance_change_month = current_month
+    }
+}
