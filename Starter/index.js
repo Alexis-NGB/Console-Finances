@@ -86,3 +86,11 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
 ];
+
+let max_balance_change = 0
+let max_balance_change_month = ''
+let min_balance_change = 0
+let min_balance_change_month = ''
+let total_balance = 0
+// we assume that we don't repeat months-year information in the finance dataset
+let num_of_months = finances.length
