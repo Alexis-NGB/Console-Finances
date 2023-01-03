@@ -95,10 +95,10 @@ let total_balance = 0
 // we assume that we don't repeat months-year information in the finance dataset
 let num_of_months = finances.length
 
-for(let month_balance=0; month_balance < num_of_months; month_balance ++){
-    let current_month = finances[month_balance][0]
-    let balance_change = finances[month_balance][1]
-    total_balance += balance_change
+for(let i=1; i < num_of_months; i ++){
+    let current_month = finances[i][0]
+    let balance_change = finances[i][1]
+    total_balance += balance_change - finances[i-1][1]
     if (balance_change > max_balance_change){
         max_balance_change = balance_change
         max_balance_change_month = current_month
@@ -109,7 +109,7 @@ for(let month_balance=0; month_balance < num_of_months; month_balance ++){
     }
 }
 
-let average = total_balance / num_of_months
+let average = total_balance / (num_of_months -1)
 
 console.log('Financial Analysis')
 console.log('----------------------------')

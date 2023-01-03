@@ -2,93 +2,29 @@
 
 ## Overview
 
-In this challenge, you'll be using the concepts you've learned to complete the required activity. This activity presents a real-world situation in which your newfound JavaScript skills will come in handy. You are tasked with creating code for analyzing the financial records of a company. You have been provided with a financial dataset in the `starter/index.js` file.
+We are going to analyse a chunk of data containing months and profit/loses for each one, and find out the total number of months, the total benefit (let's hope it is not negative!) and which single month did we obtain the single bigger profit and which single month did we register the single biggest lose.
 
-## Instructions
+## Steps
 
-1. Create a new GitHub repo called `Console-Finances`. Then, clone it to your computer.
+1. I started by setting up the variables we are going to work with, max balance change and its month, as well as the min balance change and its month. I also needed to define the total balance add up.
 
-2. Copy the starter files in your local git repository.
+2. I assumed that the finances variable did not repeat any month, and I set that variable lenght as the number of months.
+
+3. I created a for loop setting the variable "month_balance". This loop will go on as many times as number of months.
+
+4. I know that the variable given is a matrix, so I defined the month as the first argument of each element of the variable (0) and balance change for the second (1)
+
+5. Using that, I calculated the sum of balance change to obtain and define the total balance change.
+
+6. Inside the for loop I set up to "if"s. The first one runs through all the values and retains the biggest one and compares it to the next one. If the next one is bigger, then it retains that one as "max_balance_change" and so on until it compares all the values. The second one does the same with the minimum 
+
+7. Finally, the total / number of months reveal the average change.
    
-You have been given a dataset composed of arrays with two fields, Date and Profit/Losses.
 
-Your task is to write JavaScript code that analyzes the records to calculate each of the following:
+## Review in change
 
-* The total number of months included in the dataset.
-
-* The net total amount of Profit/Losses over the entire period.
-
-* The average of the **changes** in Profit/Losses over the entire period.
-  * You will need to track what the total change in profits are from month to month and then find the average.
-  * (`Total/Number of months`)
-
-* The greatest increase in profits (date and amount) over the entire period.
-
-* The greatest decrease in losses (date and amount) over the entire period.
-
-When you open your code in the browser your resulting analysis should look similar to the following:
-
-  ```text
-  Financial Analysis
-  ----------------------------
-  Total Months: 25
-  Total: $2561231
-  Average  Change: $-2315.12
-  Greatest Increase in Profits: Feb-2012 ($1926159)
-  Greatest Decrease in Profits: Sep-2013 ($-2196167)
-  ```
-
-Your final code should print the analysis to the console.
-
-**Hints:**
-
-* You will need to do some research on your own for this project!
-
-* Remember, in order to combine strings and variables in the console you will need to use **concatenation**.
-
-* How do you only print to the nearest 100th in JavaScript?
-
-## Grading Requirements
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Repository Quality: 12%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for variable naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme with description, screenshot, link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository that contains your code. Give the repository a unique name and include a README file that describes the project.
-
----
+I spoke with a TA and I understood that the exercice wanted us to calculate the biggest profit and biggest lose for each month COMPARED to the previous month, not the biggest profit and the lowest profit out of the ones displayed. I need some time to work it out and change it
 
 ## Copyright
 
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
-
+Work done by Alexis Nadir Garcia Benchakhtir
