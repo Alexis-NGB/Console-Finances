@@ -87,34 +87,37 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
-let max_balance_change = 0
-let max_balance_change_month = ''
-let min_balance_change = 0
-let min_balance_change_month = ''
-let total_balance = 0
+let maxBalanceChangeMonth = '';
+let minBalanceChangeMonth = '';
 // we assume that we don't repeat months-year information in the finance dataset
-let num_of_months = finances.length
+let numOfMonths = finances.length;
 
-for(let i=1; i < num_of_months; i ++){
-    let current_month = finances[i][0]
-    let balance_change = finances[i][1]
-    total_balance += balance_change - finances[i-1][1]
-    if (balance_change > max_balance_change){
-        max_balance_change = balance_change
-        max_balance_change_month = current_month
+let maxDiff = finances[0][1];
+let minDiff = finances[0][1];
+let totalBalance = finances[0][1];
+let totalDiff = 0;
+
+for(let i=1; i < numOfMonths; i ++){
+    let balanceChange = finances[i][1];
+    diffBetweenMonths = balanceChange - finances[i-1][1];
+    if (diffBetweenMonths > maxDiff) {
+        maxDiff = diffBetweenMonths;
+        maxBalanceChangeMonth = finances[i][0];
     }
-    if (balance_change < min_balance_change){
-        min_balance_change = balance_change
-        min_balance_change_month = current_month
+    if (diffBetweenMonths < minDiff) {
+        minDiff = diffBetweenMonths;
+        minBalanceChangeMonth = finances[i][0];
     }
+    totalBalance += balanceChange;
+    totalDiff += diffBetweenMonths
 }
 
-let average = total_balance / (num_of_months -1)
+let average = totalDiff / (numOfMonths - 1);
 
-console.log('Financial Analysis')
-console.log('----------------------------')
-console.log('Total Months: ' + num_of_months)
-console.log('Total: $' + total_balance.toFixed(2))
-console.log('Average Change: $' + average.toFixed(2))
-console.log('Greatest Increase in Profits: ' + max_balance_change_month + ' ($' + max_balance_change.toFixed(2) + ')')
-console.log('Greatest Decrease in Profits: ' + min_balance_change_month + ' ($' + min_balance_change.toFixed(2) + ')')
+console.log('Financial Analysis');
+console.log('----------------------------');
+console.log('Total Months: ' + numOfMonths);
+console.log('Total: $' + totalBalance.toFixed(2));
+console.log('Average Change: $' + average.toFixed(2));
+console.log('Greatest Increase in Profits: ' + maxBalanceChangeMonth + ' ($' + maxDiff.toFixed(2) + ')');
+console.log('Greatest Decrease in Profits: ' + minBalanceChangeMonth + ' ($' + minDiff.toFixed(2) + ')');
